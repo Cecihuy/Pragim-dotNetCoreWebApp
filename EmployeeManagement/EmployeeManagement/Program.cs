@@ -1,3 +1,4 @@
+using EmployeeManagement.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -6,6 +7,7 @@ namespace EmployeeManagement {
         public static void Main(string[] args) {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddMvc(B => B.EnableEndpointRouting = false);
+            builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
             var app = builder.Build();
             //app.MapGet("/", () => "Hello World!");            
             app.UseStaticFiles();            
