@@ -1,10 +1,10 @@
-﻿@model EmployeeManagement.Models.Employee
+﻿@model EmployeeManagement.ViewModels.HomeDetailsViewModel
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head><title></title></head>
     <body>
-        <h3>@ViewBag.PageTitle</h3>
-        <div>Name : @Model.Name</div>
-        <div>Email : @Model.Email</div>
-        <div>Department : @Model.Department</div>
+        <h3>@Model.PageTitleVM</h3>
+        <div>Name : @Model.EmployeeVM.Name</div>
+        <div>Email : @Model.EmployeeVM.Email</div>
+        <div>Department : @Model.EmployeeVM.Department</div>
     </body>
 </html>
