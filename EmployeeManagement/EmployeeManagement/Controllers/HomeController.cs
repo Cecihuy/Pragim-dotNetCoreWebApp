@@ -10,9 +10,9 @@ namespace EmployeeManagement.Controllers {
         public string Index() {
             return _employeeRepository.GetEmployee(1).Name;
         }
-        public ObjectResult Details() {
+        public ViewResult Details() {
             Employee employee = _employeeRepository.GetEmployee(1);
-            return new ObjectResult(employee);
+            return View(employee);
         }
     }
 }
