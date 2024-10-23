@@ -12,7 +12,7 @@ namespace EmployeeManagement.Controllers {
         }
         public ViewResult Details() {
             Employee employee = _employeeRepository.GetEmployee(1);
-            return View(employee);
+            return View("../../MyViews/Test");
         }
     }
 }
