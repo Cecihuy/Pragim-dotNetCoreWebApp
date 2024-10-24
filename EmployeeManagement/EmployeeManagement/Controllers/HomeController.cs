@@ -13,9 +13,9 @@ namespace EmployeeManagement.Controllers {
             IEnumerable<Employee> model = _employeeRepository.GetAllEmployee();
             return View(model);
         }
-        public ViewResult Details() {
+        public ViewResult Details(int id) {
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel() {
-                EmployeeVM = _employeeRepository.GetEmployee(1),
+                EmployeeVM = _employeeRepository.GetEmployee(id),
                 PageTitleVM = "Employee Details"
             };
             return View(homeDetailsViewModel);
