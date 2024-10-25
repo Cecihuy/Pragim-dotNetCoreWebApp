@@ -20,5 +20,8 @@ namespace EmployeeManagement.Controllers {
             };
             return View(homeDetailsViewModel);
         }
+        public ViewResult Create() {
+            return View();
+        }
     }
 }
