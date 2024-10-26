@@ -8,7 +8,7 @@ namespace EmployeeManagement {
         public static void Main(string[] args) {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddMvc(B => B.EnableEndpointRouting = false).AddXmlSerializerFormatters();
-            builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+            builder.Services.AddTransient<IEmployeeRepository, MockEmployeeRepository>();
             var app = builder.Build();          
             app.UseStaticFiles();
             app.UseMvc(B=> B.MapRoute("default", "{controller=Home}/{action=Index}/{id?}"));
