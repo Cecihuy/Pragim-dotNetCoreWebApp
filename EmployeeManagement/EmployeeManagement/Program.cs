@@ -16,7 +16,7 @@ namespace EmployeeManagement {
             );
 
             builder.Services.AddMvc(B => B.EnableEndpointRouting = false).AddXmlSerializerFormatters();
-            builder.Services.AddTransient<IEmployeeRepository, MockEmployeeRepository>();
+            builder.Services.AddScoped<IEmployeeRepository, SqlEmployeeRepository>();
             var app = builder.Build();          
             app.UseStaticFiles();
             app.UseMvc(B=> B.MapRoute("default", "{controller=Home}/{action=Index}/{id?}"));

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace EmployeeManagement.Models {
@@ -16,12 +17,27 @@ namespace EmployeeManagement.Models {
             _employees.Add(employee);
             return employee;
 		}
-
+		public Employee Delete(int id) {
+            Employee employee = _employees.FirstOrDefault(x => x.Id == id);
+            if(employee != null) {
+                _employees.Remove(employee);
+            }
+            return employee;
+		}
 		public IEnumerable<Employee> GetAllEmployee() {
             return _employees;
         }
         public Employee GetEmployee(int id) {
             return _employees.FirstOrDefault(B => B.Id == id);
         }
-    }
+		public Employee Update(Employee employeeChanges) {
+			Employee employee = _employees.FirstOrDefault(x => x.Id == employeeChanges.Id);
+			if(employee != null) {
+				employee.Name = employeeChanges.Name;
+                employee.Department = employeeChanges.Department;
+                employee.Email = employeeChanges.Email;
+			}
+			return employee;
+		}
+	}
 }
