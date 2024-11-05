@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 
 namespace EmployeeManagement.ViewModels {
 	public class EmployeeCreateViewModel {
@@ -14,6 +15,6 @@ namespace EmployeeManagement.ViewModels {
 		public string Email { get; set; }
 		[Required]
 		public Dept? Department { get; set; }
-		public IFormFile? Photo { get; set; }
+		public List<IFormFile>? Photos { get; set; }
 	}
 }
